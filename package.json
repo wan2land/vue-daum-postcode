@@ -10,6 +10,7 @@
     "url": "git://github.com/wan2land/vue-daum-postcode.git"
   },
   "scripts": {
+    "prepack": "npm run build",
     "dev": "poi example-src/entry.js --config build/poi.config.js",
     "build": "rimraf dist/* && NODE_ENV=production webpack --progress --hide-modules --config ./build/webpack.prod.conf.js",
     "build:example": "rimraf example-dist/* && NODE_ENV=production webpack --mode=production --progress --hide-modules --config ./build/webpack.example.conf.js",

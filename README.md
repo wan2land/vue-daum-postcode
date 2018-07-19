@@ -29,6 +29,17 @@ import VueDaumPostcode from "vue-daum-postcode"
 Vue.use(VueDaumPostcode)
 ```
 
+기본 태그는 `vue-daum-postcode`입니다. 이를 변경하려면 다음과 같이 설정하시면 됩니다.
+
+```js
+import Vue from "vue"
+import VueDaumPostcode from "vue-daum-postcode"
+
+Vue.use(VueDaumPostcode, {
+  name: "vue-something-daum-postcode"
+})
+```
+
 ### Globals
 
 ```html
@@ -49,6 +60,27 @@ Vue.use(VueDaumPostcode)
   </script>
 </body>
 </html>
+```
+
+### Nuxt Framework
+
+`nuxt.config.js` 파일에 modules 항목에 다음 내용을 추가합니다.
+```js
+{
+  modules: [
+    'vue-daum-postcode/nuxt'
+  ],
+}
+```
+
+기본 태그는 `vue-daum-postcode`입니다. 이를 변경하려면 다음과 같이 설정하시면 됩니다.
+
+```js
+{
+  modules: [
+    ['vue-daum-postcode/nuxt', { name: "vue-something-daum-postcode" }],
+  ],
+}
 ```
 
 ### License
