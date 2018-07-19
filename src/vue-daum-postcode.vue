@@ -21,7 +21,13 @@ function loadScript() {
     isLoading = true
 
     const script = document.createElement("script")
-    script.src = "http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"
+
+    if (location.protocol === "http:") {
+      script.src = "https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js?autoload=false"
+    } else {
+      script.src = "http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"
+    }
+
     script.async = true
     script.charset = "utf8"
 
