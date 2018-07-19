@@ -1,6 +1,4 @@
 
-const webpack = require("webpack")
-const UglifyJSPlugin = require("uglifyjs-webpack-plugin")
 const VueLoaderPlugin = require("vue-loader/lib/plugin")
 
 module.exports = {
@@ -40,23 +38,4 @@ module.exports = {
     },
   },
   devtool: "#source-map",
-}
-
-if (process.env.NODE_ENV === "production") {
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: `"${process.env.NODE_ENV}"`,
-      },
-    }),
-    new UglifyJSPlugin({
-      uglifyOptions: {
-        ie8: true,
-        ecma: 5,
-      },
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-    }),
-  ])
 }

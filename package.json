@@ -12,10 +12,10 @@
   "scripts": {
     "dev": "poi example-src/entry.js --config build/poi.config.js",
     "build": "rimraf dist/* && NODE_ENV=production webpack --progress --hide-modules --config ./build/webpack.prod.conf.js",
-    "build:example": "rimraf example-dist/* && NODE_ENV=production webpack --progress --hide-modules --config ./build/webpack.example.conf.js",
+    "build:example": "rimraf example-dist/* && NODE_ENV=production webpack --mode=production --progress --hide-modules --config ./build/webpack.example.conf.js",
     "deploy:example": "push-dir --dir=example-dist --branch=gh-pages"
   },
-  "main": "dist/index.js",
+  "main": "dist/vue-daum-postcode.js",
   "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.54",

@@ -1,7 +1,9 @@
 
 const path = require("path")
+const webpack = require("webpack")
 const merge = require("webpack-merge")
-const htmlWebpackPlugin = require("html-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const UglifyJSPlugin = require("uglifyjs-webpack-plugin")
 const pkg = require("../package.json")
 
 const baseConfig = require("./webpack.base.conf")
@@ -24,10 +26,24 @@ module.exports = merge(baseConfig, {
 })
 
 module.exports.plugins = (module.exports.plugins || []).concat([
-  new htmlWebpackPlugin({
+  new HtmlWebpackPlugin({
     title: `${pkg.title} - ${pkg.description}`,
     description: pkg.description,
     template: resolve("build/template.html"),
     filename: resolve("example-dist/index.html"),
   }),
 ])
+
+if (process.env.NODE_ENV === "production") {
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new UglifyJSPlugin({
+      uglifyOptions: {
+        ie8: true,
+        ecma: 5,
+      },
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+    }),
+  ])
+}
