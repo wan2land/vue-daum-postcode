@@ -11,9 +11,9 @@
   },
   "scripts": {
     "dev": "poi example-src/entry.js --config build/poi.config.js",
-    "build:production": "rimraf dist/* && NODE_ENV=production webpack --progress --hide-modules --config ./build/webpack.prod.conf.js",
+    "build": "rimraf dist/* && NODE_ENV=production webpack --progress --hide-modules --config ./build/webpack.prod.conf.js",
     "build:example": "rimraf example-dist/* && NODE_ENV=production webpack --progress --hide-modules --config ./build/webpack.example.conf.js",
-    "build": "npm run build:production && npm run build:example"
+    "deploy:example": "push-dir --dir=example-dist --branch=gh-pages"
   },
   "main": "dist/index.js",
   "dependencies": {},
@@ -24,6 +24,7 @@
     "babel-loader": "^8.0.0-beta.4",
     "css-loader": "^1.0.0",
     "poi": "^10.2.9",
+    "push-dir": "^0.4.1",
     "rimraf": "^2.6.2",
     "vue-highlightjs": "^1.3.3",
     "vue-loader": "^15.2.6",
