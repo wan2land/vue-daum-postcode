@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <% if (htmlWebpackPlugin.options.description) { %>
+    <meta name="description" content="<%= htmlWebpackPlugin.options.description %>"/>
+    <% } %>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spoqa-han-sans/2.1.2/css/SpoqaHanSans-kr.min.css" />
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="app"></div>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35736735-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-35736735-1', {'send_page_view': false});
+    </script>
+  </body>
+</html>
