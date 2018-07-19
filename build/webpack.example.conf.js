@@ -2,6 +2,7 @@
 const path = require("path")
 const merge = require("webpack-merge")
 const htmlWebpackPlugin = require("html-webpack-plugin")
+const pkg = require("../package.json")
 
 const baseConfig = require("./webpack.base.conf")
 
@@ -12,7 +13,7 @@ function resolve (dir) {
 module.exports = merge(baseConfig, {
   entry: resolve("example-src/entry.js"),
   output: {
-    path: resolve("example"),
+    path: resolve("example-dist"),
     filename: "index.js",
   },
   resolve: {
@@ -24,7 +25,9 @@ module.exports = merge(baseConfig, {
 
 module.exports.plugins = (module.exports.plugins || []).concat([
   new htmlWebpackPlugin({
+    title: `${pkg.title} - ${pkg.description}`,
+    description: pkg.description,
     template: resolve("build/template.html"),
-    filename: resolve("index.html"),
+    filename: resolve("example-dist/index.html"),
   }),
 ])

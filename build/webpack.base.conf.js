@@ -1,6 +1,7 @@
 
 const webpack = require("webpack")
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin")
+const VueLoaderPlugin = require("vue-loader/lib/plugin")
 
 module.exports = {
   module: {
@@ -8,29 +9,31 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: "vue-loader",
-        options: {
-          scss: "vue-style-loader!css-loader!sass-loader",
-          sass: "vue-style-loader!css-loader!sass-loader?indentedSyntax",
-          loaders: {
-            js: {
-               loader: "babel-loader",
-               options: {
-                   presets: ["es2015-ie"],
-               }
-            },
-          }
-        },
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: "vue-style-loader",
+          },
+          {
+            loader: "css-loader",
+          },
+        ],
       },
       {
         test: /\.js$/,
         loader: "babel-loader",
         exclude: /node_modules/,
         query: {
-          presets: ["es2015-ie"],  
+          presets: ["@babel/preset-env"],  
         },
       },
     ],
   },
+  plugins: [
+    new VueLoaderPlugin(),
+  ],
   resolve: {
     alias: {
       "vue$": "vue/dist/vue.esm.js",
@@ -43,7 +46,7 @@ if (process.env.NODE_ENV === "production") {
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       "process.env": {
-        NODE_ENV: "\"production\"",
+        NODE_ENV: `"${process.env.NODE_ENV}"`,
       },
     }),
     new UglifyJSPlugin({
