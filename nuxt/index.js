@@ -4,7 +4,7 @@ const { resolve } = require('path')
 module.exports = function nuxtVueDaumPostcode() {
   this.addPlugin({
     src: resolve(__dirname, 'plugin.js'),
-    fileName: 'bootstrap-vue.js',
+    fileName: 'vue-daum-postcode.js',
   })
 }
 
