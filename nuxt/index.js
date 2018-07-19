@@ -1,11 +1,14 @@
 
-const { resolve } = require('path')
+// ref. https://github.com/bootstrap-vue/bootstrap-vue/blob/dev/nuxt/index.js
 
-module.exports = function nuxtVueDaumPostcode() {
+const path = require("path")
+
+module.exports = function nuxtVueDaumPostcode(options) {
   this.addPlugin({
-    src: resolve(__dirname, 'plugin.js'),
-    fileName: 'vue-daum-postcode.js',
+    src: path.resolve(__dirname, "plugin.template.js"),
+    fileName: "vue-daum-postcode.js",
+    options,
   })
 }
 
-module.exports.meta = require('../package.json')
+module.exports.meta = require("../package.json")
