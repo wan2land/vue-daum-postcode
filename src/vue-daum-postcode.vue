@@ -1,6 +1,7 @@
-
 <template>
-  <div></div>
+  <div class="vue-daum-postcode">
+    <div class="vue-daum-postcode-container" ref="container" :style="styles"></div>
+  </div>
 </template>
 <script>
 
@@ -54,14 +55,6 @@ export default {
       type: String,
       default: "",
     },
-    width: {
-      type: String,
-      default: "100%",
-    },
-    height: {
-      type: String,
-      default: "400px",
-    },
     animation: {
       type: Boolean,
       default: false,
@@ -107,13 +100,18 @@ export default {
       default: () => ({}),
     },
   },
+  data() {
+    return {
+      styleHeight: 0,
+    }
+  },
   mounted() {
     loadScript().then(() => {
       return new Promise(resolve => daum.postcode.load(resolve))
     }).then(() => {
       new daum.Postcode({
-        width: this.width,
-        height: this.height,
+        width: "100%",
+        height: "100%",
         animation: this.animation,
         autoMapping: !this.noAutoMapping,
         shorthand: !this.noShorthand,
@@ -129,13 +127,20 @@ export default {
           this.$emit("complete", data)
         },
         onresize: (size) => {
-          this.$emit("resize", size)
+          this.styleHeight = `${size.height}px`
         },
-      }).embed(this.$el, {
+      }).embed(this.$refs.container, {
         q: this.q,
         autoClose: false,
       })
     })
+  },
+  computed: {
+    styles() {
+      const styles = {}
+      styles.height = this.styleHeight
+      return styles
+    },
   },
 }
 </script>

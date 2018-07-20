@@ -29,6 +29,9 @@ section + section {
 .vue-daum-postcode {
   border: 1px solid #000;
 }
+.vue-daum-postcode-container {
+  transition: all 500ms ease;
+}
 </style>
 <template>
   <div class="container">
@@ -43,7 +46,7 @@ section + section {
           </div>
         </div>
         <div class="col col-md-4 col-xs-12">
-          <VueDaumPostcode class="vue-daum-postcode" />
+          <VueDaumPostcode />
         </div>
       </div>
     </section>
@@ -62,26 +65,21 @@ section + section {
           </div>
         </div>
         <div class="col col-md-4 col-xs-12">
-          <VueDaumPostcode class="vue-daum-postcode" @complete="example2Result = $event" />
+          <VueDaumPostcode @complete="example2Result = $event" />
         </div>
       </div>
     </section>
     <section>
       <div class="row">
         <div class="col col-md-8 col-xs-12">
-          <h2>창사이즈 이벤트</h2>
-          <p>창사이즈가 변경될 시, 이벤트는 <code>@resize</code>를 통해서 받을 수 있습니다. 우편번호 서비스의 <code>onresize</code> 속성을 사용합니다.</p>
+          <h2>사이즈</h2>
+          <p>사이즈는 기본적으로 폼에 맞춰서 늘어납니다. 만약에 사이즈를 지정하고 내부를 스크롤바로 처리하고 싶다면, 스타일시트를 통해서 처리해야합니다.</p>
           <div class="source">
             <pre v-highlightjs><code class="html">{{ example3Html }}</code></pre>
           </div>
-          <div class="result" v-if="example3Result">
-            <div class="source">
-              <pre><code class="highlight json">{{ example3Result }}</code></pre>
-            </div>
-          </div>
         </div>
         <div class="col col-md-4 col-xs-12">
-          <VueDaumPostcode class="vue-daum-postcode" @resize="example3Result = $event" />
+          <VueDaumPostcode style="height: 200px; overflow: scroll;" />
         </div>
       </div>
     </section>
@@ -95,7 +93,7 @@ section + section {
           </div>
         </div>
         <div class="col col-md-4 col-xs-12">
-          <VueDaumPostcode class="vue-daum-postcode" style="border: 2px dashed #538EF8" />
+          <VueDaumPostcode style="border: 2px dashed #538EF8" />
         </div>
       </div>
     </section>
@@ -109,7 +107,7 @@ section + section {
           </div>
         </div>
         <div class="col col-md-4 col-xs-12">
-          <VueDaumPostcode class="vue-daum-postcode"
+          <VueDaumPostcode
             height="600px"
             q="서대문구"
             :animation="true"
@@ -145,12 +143,10 @@ export default {
 <div>{{ result }}</div>`,
       example2Result: null,
 
-      example3Html: `<VueDaumPostcode @resize="example3Result = $event" />
-<div>{{ result }}</div>`,
-      example3Result: null,
+      example3Html: `<VueDaumPostcode style="height: 200px; overflow: scroll;" />`,
 
       example4Html: `<VueDaumPostcode style="border: 2px dashed #538EF8" />`,
-      example5Html: `<VueDaumPostcode class="vue-daum-postcode"
+      example5Html: `<VueDaumPostcode
   height="600px"
   q="서대문구"
   :animation="true"
