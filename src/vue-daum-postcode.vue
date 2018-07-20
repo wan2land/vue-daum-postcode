@@ -22,7 +22,7 @@ function loadScript() {
 
     const script = document.createElement("script")
 
-    if (location.protocol === "http:") {
+    if (location.protocol === "https:") {
       script.src = "https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js?autoload=false"
     } else {
       script.src = "http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"
