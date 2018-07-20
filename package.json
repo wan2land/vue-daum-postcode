@@ -5,6 +5,14 @@
   "description": "Daum Postcode Component for Vue.js.",
   "author": "Changwan Jun",
   "license": "MIT",
+  "keywords": [
+    "address",
+    "zipcode",
+    "postcode",
+    "daum",
+    "korea",
+    "daum postcode service"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/wan2land/vue-daum-postcode.git"
