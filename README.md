@@ -1,8 +1,11 @@
 # Vue Daum Postcode
 
-[![vue-js](https://img.shields.io/badge/vue.js-2.x-brightgreen.svg?maxAge=604800)](https://vuejs.org/)
-[![downloads](https://img.shields.io/npm/dt/vue-daum-postcode.svg)](https://www.npmjs.com/package/vue-daum-postcode)
-[![npm-version](https://img.shields.io/npm/v/vue-daum-postcode.svg)](https://www.npmjs.com/package/vue-daum-postcode)
+[![VueJS](https://img.shields.io/badge/vue.js-2.x-brightgreen.svg?maxAge=604800)](https://vuejs.org/)
+[![Downloads](https://img.shields.io/npm/dt/vue-daum-postcode.svg)](https://npmcharts.com/compare/vue-daum-postcode?minimal=true)
+[![Version](https://img.shields.io/npm/v/vue-daum-postcode.svg)](https://www.npmjs.com/package/vue-daum-postcode)
+[![License](https://img.shields.io/npm/l/vue-daum-postcode.svg)](https://www.npmjs.com/package/vue-daum-postcode)
+
+[![NPM](https://nodei.co/npm/vue-daum-postcode.png)](https://www.npmjs.com/package/vue-daum-postcode)
 
 [Daum 우편번호 서비스](http://postcode.map.daum.net/guide)를 기반으로 작업된 Vue Component 입니다.
 
