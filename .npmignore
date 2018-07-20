@@ -1,0 +1,6 @@
+*
+!/dist/**/*
+!/src/**/*
+!/nuxt/**/*
+*.md
+!README.md
