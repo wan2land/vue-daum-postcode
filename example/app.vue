@@ -1,4 +1,4 @@
-<style>
+<style lang="scss">
 body {
   font-family: 'Spoqa Han Sans', 'Open Sans', sans-serif;
 }
@@ -129,7 +129,7 @@ section + section {
 </template>
 <script>
 
-import VueDaumPostcode from "../src/vue-daum-postcode.vue"
+import VueDaumPostcode from "../src/vue-daum-postcode"
 
 export default {
   components: {

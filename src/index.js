@@ -1,5 +1,4 @@
-
-import VueDaumPostcode from "./vue-daum-postcode.vue"
+import VueDaumPostcode from "./vue-daum-postcode"
 
 export function install(Vue, options) {
   options = options || {}

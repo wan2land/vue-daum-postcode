@@ -1,9 +1,3 @@
-<template>
-  <div class="vue-daum-postcode">
-    <div class="vue-daum-postcode-container" ref="container" :style="styles"></div>
-  </div>
-</template>
-<script>
 
 let isLoading = false
 const loadedResolves = []
@@ -142,5 +136,9 @@ export default {
       return styles
     },
   },
+  render(h) {
+    return h("div", {class: ["vue-daum-postcode"]}, [
+      h("div", {class: ["vue-daum-postcode-container"], ref: "container", style: this.styles})
+    ])
+  },
 }
-</script>

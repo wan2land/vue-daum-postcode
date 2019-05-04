@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+console.log("~")
+</script>
+</head>
+<body>
+<div id="postcode"></div>
+<script>
+function load() {
+  console.log("load")
+  daum.postcode.load(() => {
+    new daum.Postcode().embed(document.getElementById("postcode"))
+  })
+}
+load()
+</script>
+</body>
+</html>

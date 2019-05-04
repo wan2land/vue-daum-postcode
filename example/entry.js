@@ -3,7 +3,7 @@ import Vue from "vue"
 import VueDaumPostcode from "vue-daum-postcode"
 import VueHighlightJS from "vue-highlightjs"
 
-import App from "./App.vue"
+import App from "./app.vue"
 
 Vue.use(VueDaumPostcode)
 Vue.use(VueHighlightJS)
