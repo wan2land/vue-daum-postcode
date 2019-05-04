@@ -118,6 +118,12 @@ Nuxt 프레임워크를 사용한다면, 설정파일(`nuxt.config.js`)의 `modu
 `zonecode-only`           | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `zonecodeOnly`. | `false`
 `theme`                   | `object`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `theme`. | `{}`
 
+## Events
+
+이름                      | 설명
+------------------------- | -----------
+`complete`                | [Daum 우편번호, 속성](http://postcode.map.daum.net/guide)에서 `oncomplete`.
+
 ## License
 
 본 소스코드 자체의 라이센스는 **MIT**입니다. Daum 우편번호 서비스의 라이센스

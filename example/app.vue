@@ -58,10 +58,12 @@ section + section {
           <div class="source">
             <pre v-highlightjs><code class="html">{{ example2Html }}</code></pre>
           </div>
-          <div class="result" v-if="example2Result">
-            <div class="source">
-              <pre><code class="highlight json">{{ example2Result }}</code></pre>
+          <div class="result">
+            <h3>결과</h3>
+            <div class="source" v-if="example2Result">
+              <pre v-highlightjs><code class="json">{{ example2Result }}</code></pre>
             </div>
+            <div class="source" v-else>검색 후, 주소를 클릭해주세요.</div>
           </div>
         </div>
         <div class="col col-md-4 col-xs-12">
