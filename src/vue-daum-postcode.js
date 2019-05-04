@@ -101,9 +101,9 @@ export default {
   },
   mounted() {
     loadScript().then(() => {
-      return new Promise(resolve => daum.postcode.load(resolve))
+      return new Promise(resolve => window.daum.postcode.load(resolve))
     }).then(() => {
-      new daum.Postcode({
+      new window.daum.Postcode({
         width: "100%",
         height: "100%",
         animation: this.animation,
