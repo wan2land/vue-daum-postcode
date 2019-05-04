@@ -108,7 +108,6 @@ section + section {
         </div>
         <div class="col col-md-4 col-xs-12">
           <VueDaumPostcode
-            height="600px"
             q="서대문구"
             :animation="true"
             :no-shorthand="true"
@@ -120,6 +119,7 @@ section + section {
             :hide-map-btn="true"
             :hide-eng-btn="true"
             :always-show-eng-addr="true"
+            :zonecode-only="true"
             :theme="{bgColor: '#162525', searchBgColor: '#162525', contentBgColor: '#162525', pageBgColor: '#162525', textColor: '#FFFFFF', queryTextColor: '#FFFFFF', outlineColor: '#44444'}"
           />
         </div>
@@ -147,7 +147,6 @@ export default {
 
       example4Html: `<VueDaumPostcode style="border: 2px dashed #538EF8" />`,
       example5Html: `<VueDaumPostcode
-  height="600px"
   q="서대문구"
   :animation="true"
   :no-shorthand="true"
@@ -159,6 +158,7 @@ export default {
   :hide-map-btn="true"
   :hide-eng-btn="true"
   :always-show-eng-addr="true"
+  :zonecode-only="true"
   :theme="{
     bgColor: '#162525',
     searchBgColor: '#162525',

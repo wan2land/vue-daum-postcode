@@ -89,6 +89,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    zonecodeOnly: {
+      type: Boolean,
+      default: false,
+    },
     theme: {
       type: Object,
       default: () => ({}),
@@ -116,6 +120,7 @@ export default {
         hideMapBtn: this.hideMapBtn,
         hideEngBtn: this.hideEngBtn,
         alwaysShowEngAddr: this.alwaysShowEngAddr,
+        zonecodeOnly: this.zonecodeOnly,
         theme: this.theme,
         oncomplete: (data) => {
           this.$emit("complete", data)

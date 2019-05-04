@@ -105,17 +105,18 @@ Nuxt 프레임워크를 사용한다면, 설정파일(`nuxt.config.js`)의 `modu
 이름                      | 타입      | 설명        | 기본값
 ------------------------- | --------- | ----------- | -------
 `q`                       | `String`  | 검색어 | `""`
-`animation`               | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `animation`과 동일. | `false`
-`no-autoMapping`          | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `autoMapping`과 동일, 기본값을 `true`에서 `false`로 조정. | `false`
-`no-shorthand`            | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `shorthand`과 동일, 기본값을 `true`에서 `false`로 조정. | `false`
-`please-read-guide`       | `Number`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `pleaseReadGuide`과 동일. | `0`
-`please-read-guide-timer` | `Number`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `pleaseReadGuideTimer`과 동일. | `1.5`
-`max-suggest-items`       | `Number`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `maxSuggestItems`과 동일. | `10`
-`show-more-h-name`        | `Boolean`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `showMoreHName`과 동일. | `false`
-`hide-map-btn`            | `Boolean`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `hideMapBtn`과 동일. | `false`
-`hide-eng-btn`            | `Boolean`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `hideEngBtn`과 동일. | `false`
-`always-show-eng-addr`    | `Boolean`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `alwaysShowEngAddr`과 동일. | `false`
-`theme`                   | `object`   | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `theme`과 동일. | `{}`
+`animation`               | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `animation`. | `false`
+`no-autoMapping`          | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `autoMapping`, 기본값을 `true`에서 `false`로 조정. | `false`
+`no-shorthand`            | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `shorthand`, 기본값을 `true`에서 `false`로 조정. | `false`
+`please-read-guide`       | `Number`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `pleaseReadGuide`. | `0`
+`please-read-guide-timer` | `Number`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `pleaseReadGuideTimer`. | `1.5`
+`max-suggest-items`       | `Number`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `maxSuggestItems`. | `10`
+`show-more-h-name`        | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `showMoreHName`. | `false`
+`hide-map-btn`            | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `hideMapBtn`. | `false`
+`hide-eng-btn`            | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `hideEngBtn`. | `false`
+`always-show-eng-addr`    | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `alwaysShowEngAddr`. | `false`
+`zonecode-only`           | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `zonecodeOnly`. | `false`
+`theme`                   | `object`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `theme`. | `{}`
 
 ## License
 
