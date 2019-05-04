@@ -25,6 +25,8 @@ npm install vue-daum-postcode --save
 
 ### ES6
 
+ES6 환경에서는 다음과 같이 사용할 수 있습니다.
+
 ```js
 import Vue from "vue"
 import VueDaumPostcode from "vue-daum-postcode"
@@ -32,7 +34,15 @@ import VueDaumPostcode from "vue-daum-postcode"
 Vue.use(VueDaumPostcode)
 ```
 
-기본 태그는 `vue-daum-postcode`입니다. 이를 변경하려면 다음과 같이 설정하시면 됩니다.
+기본 태그는 `vue-daum-postcode`이고, 다음과 같이 사용가능합니다.
+
+```html
+<template>
+  <vue-daum-postcode />
+</template>
+```
+
+만약에 기본 태그를 다른 이름으로 변경하려면 다음과 같이 설정하시면 됩니다.
 
 ```js
 import Vue from "vue"
@@ -45,6 +55,9 @@ Vue.use(VueDaumPostcode, {
 
 ### Globals
 
+Webpack과 같은 번들러를 사용하지 않는 경우 다음과 같이 사용할 수 있습니다. 전역으로 설정할 경우 `Vue.use(...)`는 필요없습니다.
+또한 `window.VueDaumPostcode`를 통해 라이브러리에 직접 접근할 수 있습니다.
+
 ```html
 <html>
 <head>
@@ -54,8 +67,8 @@ Vue.use(VueDaumPostcode, {
   <div id="app">
     <vue-daum-postcode />
   </div>
-  <script src="path/to/vue.js"></script>
-  <script src="path/to/vue-daum-postcode.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.j"></script>
+  <script src="//cdn.jsdelivr.net/gh/wan2land/vue-daum-postcode/dist/index.js"></script>
   <script>
     new Vue({
       el: '#app'
@@ -67,7 +80,8 @@ Vue.use(VueDaumPostcode, {
 
 ### Nuxt Framework
 
-`nuxt.config.js` 파일에 modules 항목에 다음 내용을 추가합니다.
+Nuxt 프레임워크를 사용한다면, 설정파일(`nuxt.config.js`)의 `modules` 항목에 다음 내용을 추가합니다.
+
 ```js
 {
   modules: [
@@ -76,7 +90,7 @@ Vue.use(VueDaumPostcode, {
 }
 ```
 
-기본 태그는 `vue-daum-postcode`입니다. 이를 변경하려면 다음과 같이 설정하시면 됩니다.
+마찬가지로, 기본 태그는 `vue-daum-postcode`입니다. 이를 변경하려면 다음과 같이 설정하시면 됩니다.
 
 ```js
 {
@@ -86,6 +100,23 @@ Vue.use(VueDaumPostcode, {
 }
 ```
 
-### License
+## Props
 
-라이센스는 **MIT**라고 적어두었으나, Daum 우편번호 서비스의 라이센스를 그대로 따라갑니다.
+이름                      | 타입      | 설명        | 기본값
+------------------------- | --------- | ----------- | -------
+`q`                       | `String`  | 검색어 | `""`
+`animation`               | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `animation`과 동일. | `false`
+`no-autoMapping`          | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `autoMapping`과 동일, 기본값을 `true`에서 `false`로 조정. | `false`
+`no-shorthand`            | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `shorthand`과 동일, 기본값을 `true`에서 `false`로 조정. | `false`
+`please-read-guide`       | `Number`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `pleaseReadGuide`과 동일. | `0`
+`please-read-guide-timer` | `Number`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `pleaseReadGuideTimer`과 동일. | `1.5`
+`max-suggest-items`       | `Number`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `maxSuggestItems`과 동일. | `10`
+`show-more-h-name`        | `Boolean`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `showMoreHName`과 동일. | `false`
+`hide-map-btn`            | `Boolean`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `hideMapBtn`과 동일. | `false`
+`hide-eng-btn`            | `Boolean`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `hideEngBtn`과 동일. | `false`
+`always-show-eng-addr`    | `Boolean`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `alwaysShowEngAddr`과 동일. | `false`
+`theme`                   | `object`   | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `theme`과 동일. | `{}`
+
+## License
+
+본 소스코드 자체의 라이센스는 **MIT**입니다. Daum 우편번호 서비스의 라이센스
