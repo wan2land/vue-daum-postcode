@@ -5,7 +5,7 @@ const loadedRejects = []
 
 function loadScript() {
   return new Promise((resolve, reject) => {
-    if (window.daum && window.daum) {
+    if (window.daum && window.daum.postcode) {
       return resolve()
     }
     loadedResolves.push(resolve)
