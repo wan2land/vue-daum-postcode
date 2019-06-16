@@ -22,11 +22,10 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.scss$/,
+        test: /\.css$/,
         use: [
           "vue-style-loader",
           "css-loader",
-          "sass-loader"
         ],
       },
     ]

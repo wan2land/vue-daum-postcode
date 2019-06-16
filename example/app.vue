@@ -1,4 +1,4 @@
-<style lang="scss">
+<style>
 body {
   font-family: 'Spoqa Han Sans', 'Open Sans', sans-serif;
 }
