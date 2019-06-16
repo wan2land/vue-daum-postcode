@@ -25,7 +25,8 @@
     "build:example": "cross-env NODE_ENV=production webpack --config example/webpack.config.js",
     "deploy:example": "push-dir --dir=example-dist --branch=gh-pages"
   },
-  "main": "dist/vue-daum-postcode.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.4.4",
