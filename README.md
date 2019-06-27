@@ -98,6 +98,22 @@ Nuxt 프레임워크를 사용한다면, 설정파일(`nuxt.config.js`)의 `modu
 }
 ```
 
+### Components 만 사용
+
+특정 화면에서 컴퍼넌트로 이용하고 싶다면 다음과 같이 작성하시면 됩니다.
+
+```js
+import { VueDaumPostcode } from "vue-daum-postcode"
+// const { VueDaumPostcode } = require("vue-daum-postcode")
+
+export default {
+  components: {
+    VueDaumPostcode,
+  },
+}
+```
+
+
 ## Props
 
 이름                      | 타입      | 설명        | 기본값
@@ -124,4 +140,4 @@ Nuxt 프레임워크를 사용한다면, 설정파일(`nuxt.config.js`)의 `modu
 
 ## License
 
-본 소스코드 자체의 라이센스는 **MIT**입니다. Daum 우편번호 서비스의 라이센스
+Vue 소스코드 자체의 라이센스는 **MIT**입니다. 기반 우편번호는 Daum 우편번호 서비스를 이용하고 있습니다.
