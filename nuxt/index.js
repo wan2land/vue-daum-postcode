@@ -8,6 +8,7 @@ module.exports = function nuxtVueDaumPostcode(options) {
     src: path.resolve(__dirname, "plugin.template.js"),
     fileName: "vue-daum-postcode.js",
     options,
+    ssr: false,
   })
 }
 
