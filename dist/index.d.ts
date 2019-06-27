@@ -13,5 +13,4 @@ export interface VueDaumPostcodePlugin {
   install: PluginFunction<VueDaumPostcodePluginOptions>
 }
 
-export class VueDaumPostcode implements ComponentOptions<Vue, any, any, any> {
-}
+export declare const VueDaumPostcode: ComponentOptions<any, any, any, any>
