@@ -60,7 +60,7 @@ section + section {
           </div>
           <div class="result">
             <h3>결과</h3>
-            <div class="source" v-if="example2Result">
+            <div class="source" v-if="example2Result" :key="JSON.stringify(example2Result)">
               <pre v-highlightjs><code class="json">{{ example2Result }}</code></pre>
             </div>
             <div class="source" v-else>검색 후, 주소를 클릭해주세요.</div>
