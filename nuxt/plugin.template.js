@@ -4,7 +4,7 @@ import VueDaumPostcode from "vue-daum-postcode"
 
 const options = {}
 <% if (options.name) { %>options.name = "<%= options.name %>"<% } %>
-<% if (options.scriptUrl) { %>options.scriptUrl = "<%= options.scriptUrl %>"<% } %>
+<% if (options.scriptURL) { %>options.scriptURL = "<%= options.scriptURL %>"<% } %>
 
 
 Vue.use(VueDaumPostcode, options)

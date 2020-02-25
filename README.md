@@ -63,7 +63,7 @@ import Vue from "vue"
 import VueDaumPostcode from "vue-daum-postcode"
 
 Vue.use(VueDaumPostcode, {
-  scriptUrl: "https://s3.ap-northeast-2.amazonaws.com/YOUR_BUCKET_NAME/postcode.v2.js"
+  scriptURL: "https://s3.ap-northeast-2.amazonaws.com/YOUR_BUCKET_NAME/postcode.v2.js"
 })
 ```
 
@@ -119,7 +119,7 @@ Nuxt 프레임워크를 사용한다면, 설정파일(`nuxt.config.js`)의 `modu
 ```js
 {
   modules: [
-    ['vue-daum-postcode/nuxt', { scriptUrl: "https://s3.ap-northeast-2.amazonaws.com/YOUR_BUCKET_NAME/postcode.v2.js" }],
+    ['vue-daum-postcode/nuxt', { scriptURL: "https://s3.ap-northeast-2.amazonaws.com/YOUR_BUCKET_NAME/postcode.v2.js" }],
   ],
 }
 ```

@@ -76,7 +76,7 @@ export default {
 
         const script = document.createElement("script")
 
-        script.src = this.$scriptUrl
+        script.src = this.$scriptURL
         script.async = true
         script.charset = "utf8"
 
