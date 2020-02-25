@@ -56,6 +56,17 @@ Vue.use(VueDaumPostcode, {
 })
 ```
 
+[기본 Daum postcode.js url](https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js)을 다른 url로 변경하려면 다음과 같이 설정하시면 됩니다.
+
+```js
+import Vue from "vue"
+import VueDaumPostcode from "vue-daum-postcode"
+
+Vue.use(VueDaumPostcode, {
+  scriptUrl: "https://s3.ap-northeast-2.amazonaws.com/YOUR_BUCKET_NAME/postcode.v2.js"
+})
+```
+
 ### Globals
 
 Webpack과 같은 번들러를 사용하지 않는 경우 다음과 같이 사용할 수 있습니다. 전역으로 설정할 경우 `Vue.use(...)`는 필요없습니다.
@@ -99,6 +110,16 @@ Nuxt 프레임워크를 사용한다면, 설정파일(`nuxt.config.js`)의 `modu
 {
   modules: [
     ['vue-daum-postcode/nuxt', { name: "vue-something-daum-postcode" }],
+  ],
+}
+```
+
+[기본 Daum postcode.js url](https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js) 또한 아래와 같이 설정하여 다른 url로 변경하실 수 있습니다.
+
+```js
+{
+  modules: [
+    ['vue-daum-postcode/nuxt', { scriptUrl: "https://s3.ap-northeast-2.amazonaws.com/YOUR_BUCKET_NAME/postcode.v2.js" }],
   ],
 }
 ```
