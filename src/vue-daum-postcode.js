@@ -1,43 +1,3 @@
-
-let isLoading = false
-const loadedResolves = []
-const loadedRejects = []
-
-function loadScript() {
-  return new Promise((resolve, reject) => {
-    if (window.daum && window.daum.postcode) {
-      return resolve()
-    }
-    loadedResolves.push(resolve)
-    loadedRejects.push(reject)
-    if (isLoading) {
-      return
-    }
-    isLoading = true
-
-    const script = document.createElement("script")
-
-    script.src = "https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"
-    script.async = true
-    script.charset = "utf8"
-
-    const dom = document.head
-      || document.getElementsByTagName('head')[0]
-      || document.body
-      || document.getElementsByTagName("body")[0]
-
-    dom.appendChild(script)
-
-    script.onload = () => {
-      isLoading = false
-      loadedResolves.forEach(cb => cb())
-    }
-    script.onerror = () => {
-      isLoading = false
-      loadedRejects.forEach(cb => cb())
-    }
-  })
-}
 export default {
   props: {
     q: {
@@ -96,10 +56,50 @@ export default {
   data() {
     return {
       styleHeight: 0,
+      isLoading: false,
+      loadedResolves: [],
+      loadedRejects: [],
+    }
+  },
+  methods: {
+    loadScript() {
+      return new Promise((resolve, reject) => {
+        if (window.daum && window.daum.postcode) {
+          return resolve()
+        }
+        this.loadedResolves.push(resolve)
+        this.loadedRejects.push(reject)
+        if (this.isLoading) {
+          return
+        }
+        this.isLoading = true
+
+        const script = document.createElement("script")
+
+        script.src = "https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"
+        script.async = true
+        script.charset = "utf8"
+
+        const dom = document.head
+          || document.getElementsByTagName('head')[0]
+          || document.body
+          || document.getElementsByTagName("body")[0]
+
+        dom.appendChild(script)
+
+        script.onload = () => {
+          this.isLoading = false
+          this.loadedResolves.forEach(cb => cb())
+        }
+        script.onerror = () => {
+          this.isLoading = false
+          this.loadedRejects.forEach(cb => cb())
+        }
+      })
     }
   },
   mounted() {
-    loadScript().then(() => {
+    this.loadScript().then(() => {
       return new Promise(resolve => window.daum.postcode.load(resolve))
     }).then(() => {
       new window.daum.Postcode({
