@@ -1,27 +1,27 @@
 module.exports = {
-  mode: "production",
-  entry: __dirname + "/src/index.js",
+  mode: 'production',
+  entry: __dirname + '/src/index.js',
   output: {
-    path: __dirname +  "/dist",
-    filename: "index.js",
-    libraryTarget: "umd",
+    path: __dirname +  '/dist',
+    filename: 'index.js',
+    libraryTarget: 'umd',
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         exclude: /node_modules/,
       },
     ],
   },
   externals: {
-    vue: "vue",
+    vue: 'vue',
   },
   resolve: {
     alias: {
-      "vue$": "vue/dist/vue.esm.js",
+      'vue$': 'vue/dist/vue.esm.js',
     },
   },
-  devtool: "#source-map",
+  devtool: '#source-map',
 }

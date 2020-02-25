@@ -12,7 +12,7 @@ export function createVueDaumPostcode(options = {}) {
     props: {
       q: {
         type: String,
-        default: "",
+        default: '',
       },
       animation: {
         type: Boolean,
@@ -71,8 +71,8 @@ export function createVueDaumPostcode(options = {}) {
     mounted() {
       loadDaumPostcode().then(() => {
         new window.daum.Postcode({
-          width: "100%",
-          height: "100%",
+          width: '100%',
+          height: '100%',
           animation: this.animation,
           autoMapping: !this.noAutoMapping,
           shorthand: !this.noShorthand,
@@ -86,7 +86,7 @@ export function createVueDaumPostcode(options = {}) {
           zonecodeOnly: this.zonecodeOnly,
           theme: this.theme,
           oncomplete: (data) => {
-            this.$emit("complete", data)
+            this.$emit('complete', data)
           },
           onresize: (size) => {
             this.styleHeight = `${size.height}px`
@@ -105,8 +105,8 @@ export function createVueDaumPostcode(options = {}) {
       },
     },
     render(h) {
-      return h("div", {class: ["vue-daum-postcode"]}, [
-        h("div", {class: ["vue-daum-postcode-container"], ref: "container", style: this.styles})
+      return h('div', {class: ['vue-daum-postcode']}, [
+        h('div', {class: ['vue-daum-postcode-container'], ref: 'container', style: this.styles})
       ])
     },
   }
