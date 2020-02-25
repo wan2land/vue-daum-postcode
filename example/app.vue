@@ -46,7 +46,7 @@ section + section {
           </div>
         </div>
         <div class="col col-md-4 col-xs-12">
-          <VueDaumPostcode />
+          <vue-daum-postcode />
         </div>
       </div>
     </section>
@@ -67,7 +67,7 @@ section + section {
           </div>
         </div>
         <div class="col col-md-4 col-xs-12">
-          <VueDaumPostcode @complete="example2Result = $event" />
+          <vue-daum-postcode @complete="example2Result = $event" />
         </div>
       </div>
     </section>
@@ -81,7 +81,7 @@ section + section {
           </div>
         </div>
         <div class="col col-md-4 col-xs-12">
-          <VueDaumPostcode style="height: 200px; overflow: scroll;" />
+          <vue-daum-postcode style="height: 200px; overflow: scroll;" />
         </div>
       </div>
     </section>
@@ -95,7 +95,7 @@ section + section {
           </div>
         </div>
         <div class="col col-md-4 col-xs-12">
-          <VueDaumPostcode style="border: 2px dashed #538EF8" />
+          <vue-daum-postcode style="border: 2px dashed #538EF8" />
         </div>
       </div>
     </section>
@@ -109,7 +109,7 @@ section + section {
           </div>
         </div>
         <div class="col col-md-4 col-xs-12">
-          <VueDaumPostcode
+          <vue-daum-postcode
             q="서대문구"
             :animation="true"
             :no-shorthand="true"
@@ -131,24 +131,19 @@ section + section {
 </template>
 <script>
 
-import VueDaumPostcode from "../src/vue-daum-postcode"
-
 export default {
-  components: {
-    VueDaumPostcode,
-  },
   data() {
     return {
-      example1Html: `<VueDaumPostcode />`,
+      example1Html: `<vue-daum-postcode />`,
 
-      example2Html: `<VueDaumPostcode @complete="result = $event" />
+      example2Html: `<vue-daum-postcode @complete="result = $event" />
 <div>{{ result }}</div>`,
       example2Result: null,
 
-      example3Html: `<VueDaumPostcode style="height: 200px; overflow: scroll;" />`,
+      example3Html: `<vue-daum-postcode style="height: 200px; overflow: scroll;" />`,
 
-      example4Html: `<VueDaumPostcode style="border: 2px dashed #538EF8" />`,
-      example5Html: `<VueDaumPostcode
+      example4Html: `<vue-daum-postcode style="border: 2px dashed #538EF8" />`,
+      example5Html: `<vue-daum-postcode
   q="서대문구"
   :animation="true"
   :no-shorthand="true"
