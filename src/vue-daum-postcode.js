@@ -76,7 +76,7 @@ export default {
 
         const script = document.createElement("script")
 
-        script.src = "https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"
+        script.src = this.$scriptUrl
         script.async = true
         script.charset = "utf8"
 
