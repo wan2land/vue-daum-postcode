@@ -62,6 +62,10 @@ export function createVueDaumPostcode(options = {}) {
         type: Object,
         default: () => ({}),
       },
+      submitMode: {
+        type: Boolean,
+        default: true
+      },
     },
     data() {
       return {
@@ -85,6 +89,7 @@ export function createVueDaumPostcode(options = {}) {
           alwaysShowEngAddr: this.alwaysShowEngAddr,
           zonecodeOnly: this.zonecodeOnly,
           theme: this.theme,
+          submitMode: this.submitMode,
           oncomplete: (data) => {
             this.$emit('complete', data)
           },
