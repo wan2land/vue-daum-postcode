@@ -156,12 +156,14 @@ export default {
 `hide-eng-btn`            | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `hideEngBtn`. | `false`
 `always-show-eng-addr`    | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `alwaysShowEngAddr`. | `false`
 `zonecode-only`           | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `zonecodeOnly`. | `false`
+`no-submit-mode`          | `Boolean` | Submit Mode 비활성화시 사용. ([관련 이슈 링크](https://github.com/daumPostcode/QnA/issues/286)) | `false`
 `theme`                   | `object`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `theme`. | `{}`
 
 ## Events
 
 이름                      | 설명
 ------------------------- | -----------
+`search`                  | [Daum 우편번호, 속성](http://postcode.map.daum.net/guide)에서 `onsearch`.
 `complete`                | [Daum 우편번호, 속성](http://postcode.map.daum.net/guide)에서 `oncomplete`.
 
 ## License
