@@ -90,6 +90,9 @@ export function createVueDaumPostcode(options = {}) {
           zonecodeOnly: this.zonecodeOnly,
           theme: this.theme,
           submitMode: !this.noSubmitMode,
+          onsearch: (data) => {
+            this.$emit('search', data)
+          },
           oncomplete: (data) => {
             this.$emit('complete', data)
           },

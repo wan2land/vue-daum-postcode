@@ -54,7 +54,28 @@ section + section {
       <div class="row">
         <div class="col col-md-8 col-xs-12">
           <h2>검색결과 받기</h2>
-          <p>결과를 받을 때는 <code>@complete</code>를 사용합니다. 창을 닫는 액션도 해당 메서드에서 실행하면 됩니다. 우편번호 서비스의 <code>oncomplete</code> 속성을 사용합니다.</p>
+          <p>주소 검색 후 이벤트를 받을 때는 <code>@search</code>를 사용합니다. 우편번호 서비스의 <code>onsearch</code> 속성을 사용합니다.</p>
+          <div class="source">
+            <pre v-highlightjs><code class="html">{{ exampleOnSearchHtml }}</code></pre>
+          </div>
+          <div class="result">
+            <h3>결과</h3>
+            <div class="source" v-if="exampleOnSearchResult" :key="JSON.stringify(exampleOnSearchResult)">
+              <pre v-highlightjs><code class="json">{{ exampleOnSearchResult }}</code></pre>
+            </div>
+            <div class="source" v-else>주소를 검색해주세요.</div>
+          </div>
+        </div>
+        <div class="col col-md-4 col-xs-12">
+          <vue-daum-postcode @search="exampleOnSearchResult = $event" />
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="row">
+        <div class="col col-md-8 col-xs-12">
+          <h2>입력결과 받기</h2>
+          <p>주소 입력 결과를 받을 때는 <code>@complete</code>를 사용합니다. 주소를 입력 받은 후에 해당 컴퍼넌트를 닫아야 하는 경우, 이 이벤트를 활용하시면 됩니다. 우편번호 서비스의 <code>oncomplete</code> 속성을 사용합니다.</p>
           <div class="source">
             <pre v-highlightjs><code class="html">{{ example2Html }}</code></pre>
           </div>
@@ -135,6 +156,10 @@ export default {
   data() {
     return {
       example1Html: `<vue-daum-postcode />`,
+
+      exampleOnSearchHtml: `<vue-daum-postcode @onsearch="result = $event" />
+<div>{{ result }}</div>`,
+      exampleOnSearchResult: null,
 
       example2Html: `<vue-daum-postcode @complete="result = $event" />
 <div>{{ result }}</div>`,
