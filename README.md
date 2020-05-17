@@ -81,8 +81,8 @@ Webpack과 같은 번들러를 사용하지 않는 경우 다음과 같이 사�
   <div id="app">
     <vue-daum-postcode />
   </div>
-  <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.j"></script>
-  <script src="//cdn.jsdelivr.net/gh/wan2land/vue-daum-postcode/dist/index.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/vue-daum-postcode/dist/index.js"></script>
   <script>
     new Vue({
       el: '#app'
