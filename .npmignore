@@ -1,6 +1,4 @@
 *
-!/dist/**/*
+!/lib/**/*
 !/src/**/*
-!/nuxt/**/*
-*.md
 !README.md

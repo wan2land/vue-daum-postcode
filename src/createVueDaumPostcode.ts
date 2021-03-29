@@ -1,14 +1,20 @@
+import { defineComponent, PropType, h } from 'vue'
 import { create } from 'nano-loader'
+import type { VueDaumPostcodeCompleteResult, VueDaumPostcodeResizeResult, VueDaumPostcodeSearchResult, VueDaumPostcodeTheme } from './interfaces'
 
-export function createVueDaumPostcode(options = {}) {
+export interface CreateVueDaumPostcodeOptions {
+  scriptUrl?: string | null
+}
+
+export function createVueDaumPostcode(options: CreateVueDaumPostcodeOptions = {}) {
   const loadDaumPostcode = create(
     options.scriptUrl || 'https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js',
     () => {
-      return new Promise(resolve => window.daum.postcode.load(resolve))
-    },
+      return new Promise(resolve => (window as any).daum.postcode.load(resolve))
+    }
   )
 
-  return {
+  return defineComponent({
     props: {
       q: {
         type: String,
@@ -63,18 +69,18 @@ export function createVueDaumPostcode(options = {}) {
         default: false,
       },
       theme: {
-        type: Object,
+        type: Object as PropType<VueDaumPostcodeTheme>,
         default: () => ({}),
       },
     },
     data() {
       return {
-        styleHeight: 0,
+        styleHeight: 0 as string | number,
       }
     },
     mounted() {
       loadDaumPostcode().then(() => {
-        new window.daum.Postcode({
+        new (window as any).daum.Postcode({
           width: '100%',
           height: '100%',
           animation: this.animation,
@@ -90,14 +96,15 @@ export function createVueDaumPostcode(options = {}) {
           zonecodeOnly: this.zonecodeOnly,
           theme: this.theme,
           submitMode: !this.noSubmitMode,
-          onsearch: (data) => {
+          onsearch: (data: VueDaumPostcodeSearchResult) => {
             this.$emit('search', data)
           },
-          oncomplete: (data) => {
+          oncomplete: (data: VueDaumPostcodeCompleteResult) => {
             this.$emit('complete', data)
           },
-          onresize: (size) => {
-            this.styleHeight = `${size.height}px`
+          onresize: (data: VueDaumPostcodeResizeResult) => {
+            this.styleHeight = `${data.height}px`
+            this.$emit('resize', data)
           },
         }).embed(this.$refs.container, {
           q: this.q,
@@ -105,17 +112,18 @@ export function createVueDaumPostcode(options = {}) {
         })
       })
     },
-    computed: {
-      styles() {
-        const styles = {}
-        styles.height = this.styleHeight
-        return styles
-      },
-    },
-    render(h) {
-      return h('div', {class: ['vue-daum-postcode']}, [
-        h('div', {class: ['vue-daum-postcode-container'], ref: 'container', style: this.styles})
+    render() {
+      return h('div', {
+        class: ['vue-daum-postcode']
+      }, [
+        h('div', {
+          class: ['vue-daum-postcode-container'],
+          ref: 'container',
+          style: {
+            height: this.styleHeight,
+          },
+        })
       ])
     },
-  }
+  })
 }
