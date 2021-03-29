@@ -1,8 +1,7 @@
 import { App, Plugin } from 'vue'
 
-import { createVueDaumPostcode } from './createVueDaumPostcode'
 import VueDaumPostcode from './VueDaumPostcode'
-
+import { createVueDaumPostcode } from './createVueDaumPostcode'
 import type { CreateVueDaumPostcodeOptions } from './createVueDaumPostcode'
 import type { VueDaumPostcodeTheme, VueDaumPostcodeCompleteResult, VueDaumPostcodeSearchResult, VueDaumPostcodeResizeResult } from './interfaces'
 

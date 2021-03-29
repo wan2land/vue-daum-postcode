@@ -1,5 +1,6 @@
-import { defineComponent, PropType, h } from 'vue'
 import { create } from 'nano-loader'
+import { defineComponent, PropType, h } from 'vue'
+
 import type { VueDaumPostcodeCompleteResult, VueDaumPostcodeResizeResult, VueDaumPostcodeSearchResult, VueDaumPostcodeTheme } from './interfaces'
 
 export interface CreateVueDaumPostcodeOptions {
@@ -114,7 +115,7 @@ export function createVueDaumPostcode(options: CreateVueDaumPostcodeOptions = {}
     },
     render() {
       return h('div', {
-        class: ['vue-daum-postcode']
+        class: ['vue-daum-postcode'],
       }, [
         h('div', {
           class: ['vue-daum-postcode-container'],
@@ -122,7 +123,7 @@ export function createVueDaumPostcode(options: CreateVueDaumPostcodeOptions = {}
           style: {
             height: this.styleHeight,
           },
-        })
+        }),
       ])
     },
   })
