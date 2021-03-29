@@ -1,6 +1,6 @@
 {
   "name": "vue-daum-postcode",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "title": "Daum Postcode Component",
   "description": "Daum(Kakao) Postcode Component for Vue 3.",
   "author": "Changwan Jun",

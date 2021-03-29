@@ -21,7 +21,7 @@ Vue 2.x를 사용하다면 [v0.x branch](https://github.com/wan2land/vue-daum-po
 ## Installation
 
 ```bash
-npm i vue-daum-postcode
+npm i vue-daum-postcode@next
 ```
 
 
