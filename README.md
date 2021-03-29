@@ -12,6 +12,8 @@
 
 [Daum 우편번호 서비스](http://postcode.map.daum.net/guide)를 기반으로 작업된 Vue Component 입니다.
 
+Vue 3.x를 사용하다면 [main branch](https://github.com/wan2land/vue-daum-postcode/tree/main)브랜치를 참고해주세요.
+
 ## Installation
 
 ```
