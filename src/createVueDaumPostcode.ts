@@ -1,4 +1,4 @@
-import { create } from 'nano-loader'
+import { defer, load } from 'nano-loader'
 import { defineComponent, PropType, h } from 'vue'
 
 import type { VueDaumPostcodeCompleteResult, VueDaumPostcodeResizeResult, VueDaumPostcodeSearchResult, VueDaumPostcodeTheme } from './interfaces'
@@ -8,11 +8,9 @@ export interface CreateVueDaumPostcodeOptions {
 }
 
 export function createVueDaumPostcode(options: CreateVueDaumPostcodeOptions = {}) {
-  const loadDaumPostcode = create(
-    options.scriptUrl || 'https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js',
-    () => {
-      return new Promise(resolve => (window as any).daum.postcode.load(resolve))
-    }
+  const loadDaumPostcode = defer(
+    () => load(options.scriptUrl || '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js')
+      .then(() => new Promise<void>(resolve => (window as any).daum.postcode.load(resolve)))
   )
 
   return defineComponent({
@@ -77,54 +75,73 @@ export function createVueDaumPostcode(options: CreateVueDaumPostcodeOptions = {}
     data() {
       return {
         styleHeight: 0 as string | number,
+        isLoaded: false,
       }
     },
     mounted() {
-      loadDaumPostcode().then(() => {
-        new (window as any).daum.Postcode({
-          width: '100%',
-          height: '100%',
-          animation: this.animation,
-          autoMapping: !this.noAutoMapping,
-          shorthand: !this.noShorthand,
-          pleaseReadGuide: this.pleaseReadGuide,
-          pleaseReadGuideTimer: this.pleaseReadGuideTimer,
-          maxSuggestItems: this.maxSuggestItems,
-          showMoreHName: this.showMoreHName,
-          hideMapBtn: this.hideMapBtn,
-          hideEngBtn: this.hideEngBtn,
-          alwaysShowEngAddr: this.alwaysShowEngAddr,
-          zonecodeOnly: this.zonecodeOnly,
-          theme: this.theme,
-          submitMode: !this.noSubmitMode,
-          onsearch: (data: VueDaumPostcodeSearchResult) => {
-            this.$emit('search', data)
-          },
-          oncomplete: (data: VueDaumPostcodeCompleteResult) => {
-            this.$emit('complete', data)
-          },
-          onresize: (data: VueDaumPostcodeResizeResult) => {
-            this.styleHeight = `${data.height}px`
-            this.$emit('resize', data)
-          },
-        }).embed(this.$refs.container, {
-          q: this.q,
-          autoClose: false,
+      loadDaumPostcode()
+        .then(() => {
+          this.isLoaded = true
+          return this.$nextTick()
         })
-      })
+        .then(() => {
+          new (window as any).daum.Postcode({
+            width: '100%',
+            height: '100%',
+            animation: this.animation,
+            autoMapping: !this.noAutoMapping,
+            shorthand: !this.noShorthand,
+            pleaseReadGuide: this.pleaseReadGuide,
+            pleaseReadGuideTimer: this.pleaseReadGuideTimer,
+            maxSuggestItems: this.maxSuggestItems,
+            showMoreHName: this.showMoreHName,
+            hideMapBtn: this.hideMapBtn,
+            hideEngBtn: this.hideEngBtn,
+            alwaysShowEngAddr: this.alwaysShowEngAddr,
+            zonecodeOnly: this.zonecodeOnly,
+            theme: this.theme,
+            submitMode: !this.noSubmitMode,
+            onsearch: (data: VueDaumPostcodeSearchResult) => {
+              this.$emit('search', data)
+            },
+            oncomplete: (data: VueDaumPostcodeCompleteResult) => {
+              this.$emit('complete', data)
+            },
+            onresize: (data: VueDaumPostcodeResizeResult) => {
+              this.styleHeight = `${data.height}px`
+              this.$emit('resize', data)
+            },
+          }).embed(this.$refs.container, {
+            q: this.q,
+            autoClose: false,
+          })
+          this.$emit('load')
+        })
     },
     render() {
-      return h('div', {
-        class: ['vue-daum-postcode'],
-      }, [
-        h('div', {
-          class: ['vue-daum-postcode-container'],
-          ref: 'container',
-          style: {
-            height: this.styleHeight,
-          },
-        }),
-      ])
+      return h(
+        'div',
+        {
+          class: ['vue-daum-postcode'],
+        },
+        this.isLoaded || !this.$slots.loading
+          ? [
+            h('div', {
+              class: ['vue-daum-postcode-container'],
+              ref: 'container',
+              style: {
+                height: this.styleHeight,
+              },
+            }),
+          ]
+          : [
+            h('div', {
+              class: ['vue-daum-postcode-loading'],
+            }, [
+              this.$slots.loading(),
+            ]),
+          ]
+      )
     },
   })
 }

@@ -6,6 +6,10 @@
     </div>
     <div class="section">
       <div class="container">
+        <h2>로딩</h2>
+        <p>스크립트를 불러오는 동안 보여줄 다른 내용을 슬롯을 통해 지정할 수 있습니다. 브라우저의 개발자 도구에서 Network Throttling을 통해 테스트해 볼 수 있습니다. <a href="https://github.com/wan2land/vue-daum-postcode/blob/main/example/ExampleLoading.vue">[Source]</a></p>
+        <ExampleLoading />
+
         <h2>입력결과 받기</h2>
         <p>주소 입력 결과를 받을 때는 <code>@complete</code>를 사용합니다. <a href="https://github.com/wan2land/vue-daum-postcode/blob/main/example/ExampleComplete.vue">[Source]</a></p>
         <ExampleComplete />
@@ -25,12 +29,14 @@
 import { defineComponent } from 'vue'
 
 import ExampleComplete from './ExampleComplete.vue'
-import ExampleSearch from './ExampleSearch.vue'
+import ExampleLoading from './ExampleLoading.vue'
 import ExampleProps from './ExampleProps.vue'
+import ExampleSearch from './ExampleSearch.vue'
 
 
 export default defineComponent({
   components: {
+    ExampleLoading,
     ExampleComplete,
     ExampleSearch,
     ExampleProps,

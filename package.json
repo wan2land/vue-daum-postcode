@@ -30,7 +30,6 @@
   "main": "lib/vue-daum-postcode.umd.js",
   "module": "lib/vue-daum-postcode.es.js",
   "types": "lib/index.d.ts",
-  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "12.1.4",
     "@commitlint/config-conventional": "12.1.4",
@@ -43,7 +42,7 @@
     "eslint-plugin-vue": "7.12.1",
     "gh-pages": "3.2.3",
     "husky": "5.2.0",
-    "nano-loader": "0.0.1",
+    "nano-loader": "1.0.0",
     "simple-icons": "4.25.0",
     "typescript": "4.3.4",
     "vite": "2.3.8",
