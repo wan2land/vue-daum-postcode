@@ -165,8 +165,15 @@ export default {
 
 이름                      | 설명
 ------------------------- | -----------
+`load`                    | 다음 우편번호가 로딩 되었을 때 발생
 `search`                  | [Daum 우편번호, 속성](http://postcode.map.daum.net/guide)에서 `onsearch`.
 `complete`                | [Daum 우편번호, 속성](http://postcode.map.daum.net/guide)에서 `oncomplete`.
+
+## Slots
+
+이름                      | 설명  
+------------------------- | ---------
+`loading`                 | 다음 우편번호가 아직 완전히 불러오기 전에 보여줄 내용이 있는 경우 해당 슬롯에 넣습니다. (ex. spinner)
 
 ## License
 
