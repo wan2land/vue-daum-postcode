@@ -46,7 +46,11 @@ section + section {
           </div>
         </div>
         <div class="col col-md-4 col-xs-12">
-          <vue-daum-postcode />
+          <vue-daum-postcode>
+            <template #loading>
+              Loading...
+            </template>
+          </vue-daum-postcode>
         </div>
       </div>
     </section>

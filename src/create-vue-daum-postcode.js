@@ -1,11 +1,9 @@
-import { create } from 'nano-loader'
+import { defer, load } from 'nano-loader'
 
 export function createVueDaumPostcode(options = {}) {
-  const loadDaumPostcode = create(
-    options.scriptUrl || 'https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js',
-    () => {
-      return new Promise(resolve => window.daum.postcode.load(resolve))
-    },
+  const loadDaumPostcode = defer(
+    () => load(options.scriptUrl || '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js')
+      .then(() => new Promise(resolve => window.daum.postcode.load(resolve)))
   )
 
   return {
@@ -70,38 +68,43 @@ export function createVueDaumPostcode(options = {}) {
     data() {
       return {
         styleHeight: 0,
+        isLoaded: false,
       }
     },
     mounted() {
       loadDaumPostcode().then(() => {
-        new window.daum.Postcode({
-          width: '100%',
-          height: '100%',
-          animation: this.animation,
-          autoMapping: !this.noAutoMapping,
-          shorthand: !this.noShorthand,
-          pleaseReadGuide: this.pleaseReadGuide,
-          pleaseReadGuideTimer: this.pleaseReadGuideTimer,
-          maxSuggestItems: this.maxSuggestItems,
-          showMoreHName: this.showMoreHName,
-          hideMapBtn: this.hideMapBtn,
-          hideEngBtn: this.hideEngBtn,
-          alwaysShowEngAddr: this.alwaysShowEngAddr,
-          zonecodeOnly: this.zonecodeOnly,
-          theme: this.theme,
-          submitMode: !this.noSubmitMode,
-          onsearch: (data) => {
-            this.$emit('search', data)
-          },
-          oncomplete: (data) => {
-            this.$emit('complete', data)
-          },
-          onresize: (size) => {
-            this.styleHeight = `${size.height}px`
-          },
-        }).embed(this.$refs.container, {
-          q: this.q,
-          autoClose: false,
+        this.isLoaded = true
+        this.$nextTick(() => {
+          new window.daum.Postcode({
+            width: '100%',
+            height: '100%',
+            animation: this.animation,
+            autoMapping: !this.noAutoMapping,
+            shorthand: !this.noShorthand,
+            pleaseReadGuide: this.pleaseReadGuide,
+            pleaseReadGuideTimer: this.pleaseReadGuideTimer,
+            maxSuggestItems: this.maxSuggestItems,
+            showMoreHName: this.showMoreHName,
+            hideMapBtn: this.hideMapBtn,
+            hideEngBtn: this.hideEngBtn,
+            alwaysShowEngAddr: this.alwaysShowEngAddr,
+            zonecodeOnly: this.zonecodeOnly,
+            theme: this.theme,
+            submitMode: !this.noSubmitMode,
+            onsearch: (data) => {
+              this.$emit('search', data)
+            },
+            oncomplete: (data) => {
+              this.$emit('complete', data)
+            },
+            onresize: (size) => {
+              this.styleHeight = `${size.height}px`
+            },
+          }).embed(this.$refs.container, {
+            q: this.q,
+            autoClose: false,
+          })
+          this.$emit('load')
         })
       })
     },
@@ -113,9 +116,15 @@ export function createVueDaumPostcode(options = {}) {
       },
     },
     render(h) {
-      return h('div', {class: ['vue-daum-postcode']}, [
-        h('div', {class: ['vue-daum-postcode-container'], ref: 'container', style: this.styles})
-      ])
+      return h(
+        'div',
+        {
+          class: ['vue-daum-postcode']
+        },
+        this.isLoaded || !this.$slots.loading
+          ? [h('div', { class: ['vue-daum-postcode-container'], ref: 'container', style: this.styles })]
+          : [h('div', { class: ['vue-daum-postcode-loading'] }, this.$slots.loading)]
+      )
     },
   }
 }
