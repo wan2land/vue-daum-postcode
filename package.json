@@ -31,7 +31,7 @@
   "module": "lib/vue-daum-postcode.es.js",
   "types": "lib/index.d.ts",
   "devDependencies": {
-    "@commitlint/cli": "13.2.0",
+    "@commitlint/cli": "13.2.1",
     "@commitlint/config-conventional": "13.2.0",
     "@types/node": "14.17.21",
     "@types/simple-icons": "5.8.0",
