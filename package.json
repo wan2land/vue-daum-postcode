@@ -45,7 +45,7 @@
     "nano-loader": "1.0.0",
     "simple-icons": "5.24.0",
     "typescript": "4.5.4",
-    "vite": "2.7.5",
+    "vite": "2.7.6",
     "vue": "3.2.26"
   }
 }
