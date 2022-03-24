@@ -44,7 +44,7 @@
     "husky": "7.0.4",
     "nano-loader": "1.0.0",
     "simple-icons": "5.24.0",
-    "typescript": "4.6.2",
+    "typescript": "4.6.3",
     "vite": "2.8.6",
     "vue": "3.2.31"
   }
