@@ -51,7 +51,7 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-vue": "^9.9.0",
     "gh-pages": "3.2.3",
-    "husky": "8.0.2",
+    "husky": "8.0.3",
     "nano-loader": "^1.1.0",
     "prettier": "^2.8.3",
     "simple-icons": "5.24.0",
