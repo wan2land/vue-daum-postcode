@@ -1,4 +1,4 @@
-import { defer, load } from 'nano-loader'
+import { once, load } from 'nano-loader'
 import { defineComponent, PropType, h } from 'vue'
 
 import type { VueDaumPostcodeCompleteResult, VueDaumPostcodeResizeResult, VueDaumPostcodeSearchResult, VueDaumPostcodeTheme } from './interfaces'
@@ -8,9 +8,9 @@ export interface CreateVueDaumPostcodeOptions {
 }
 
 export function createVueDaumPostcode(options: CreateVueDaumPostcodeOptions = {}) {
-  const loadDaumPostcode = defer(
-    () => load(options.scriptUrl || '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js')
-      .then(() => new Promise<void>(resolve => (window as any).daum.postcode.load(resolve)))
+  const scriptUrl = options.scriptUrl || '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js'
+  const loadDaumPostcode = once(
+    () => load(scriptUrl).then(() => new Promise<void>(resolve => (window as any).daum.postcode.load(resolve)))
   )
 
   return defineComponent({
@@ -116,6 +116,11 @@ export function createVueDaumPostcode(options: CreateVueDaumPostcodeOptions = {}
             autoClose: false,
           })
           this.$emit('load')
+        })
+        .catch((e) => {
+          const error = new Error(`Load ${scriptUrl} failed.`)
+          error.cause = e
+          this.$emit('error', error)
         })
     },
     render() {
