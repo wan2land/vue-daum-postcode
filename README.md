@@ -7,9 +7,6 @@
   <a href="https://www.npmjs.com/package/vue-daum-postcode"><img alt="License" src="https://img.shields.io/npm/l/vue-daum-postcode.svg?style=flat-square" /></a>
   <img alt="VueJS 3.x" src="https://img.shields.io/badge/vue.js-3.x-brightgreen.svg?style=flat-square" />
   <img alt="Language Typescript" src="https://img.shields.io/badge/language-Typescript-007acc.svg?style=flat-square" />
-  <br />
-  <a href="https://david-dm.org/wan2land/vue-daum-postcode"><img alt="dependencies Status" src="https://img.shields.io/david/wan2land/vue-daum-postcode.svg?style=flat-square" /></a>
-  <a href="https://david-dm.org/wan2land/vue-daum-postcode?type=dev"><img alt="devDependencies Status" src="https://img.shields.io/david/dev/wan2land/vue-daum-postcode.svg?style=flat-square" /></a>
 </p>
 
 [Daum 우편번호 서비스](http://postcode.map.daum.net/guide)를 기반으로 작업된 Vue Component 입니다.
