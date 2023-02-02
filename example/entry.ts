@@ -1,13 +1,12 @@
-import './example.css'
+import "./example.css";
 
-import { createApp } from 'vue'
-import VueDaumPostcode from 'vue-daum-postcode'
+import { createApp } from "vue";
+import VueDaumPostcodePlugin from "vue-daum-postcode";
 
-import Example from './Example.vue'
+import Example from "./Example.vue";
 
+const app = createApp(Example);
 
-const app = createApp(Example)
+app.use(VueDaumPostcodePlugin);
 
-app.use(VueDaumPostcode)
-
-app.mount('#app')
+app.mount("#app");

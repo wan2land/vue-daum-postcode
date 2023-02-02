@@ -1,5 +1,5 @@
-import { createVueDaumPostcode } from './createVueDaumPostcode'
+import { createVueDaumPostcode } from "./createVueDaumPostcode";
 
-const VueDaumPostcode = createVueDaumPostcode()
+const VueDaumPostcode = createVueDaumPostcode();
 
-export default VueDaumPostcode
+export default VueDaumPostcode;
