@@ -1,7 +1,7 @@
 # Vue Daum Postcode
 
 <p>
-  <a href="https://github.com/wan2land/vue-daum-postcode/actions?query=workflow%3A%22Node.js+CI%22"><img alt="Build" src="https://img.shields.io/github/workflow/status/wan2land/vue-daum-postcode/Node.js%20CI?logo=github&style=flat-square" /></a>
+  <a href="https://github.com/wan2land/vue-daum-postcode/actions"><img alt="Build" src="https://img.shields.io/github/actions/workflow/status/wan2land/vue-daum-postcode/ci.yml?branch=main&logo=github&style=flat-square" /></a>
   <a href="https://npmcharts.com/compare/vue-daum-postcode?minimal=true"><img alt="Downloads" src="https://img.shields.io/npm/dt/vue-daum-postcode.svg?style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/vue-daum-postcode"><img alt="Version" src="https://img.shields.io/npm/v/vue-daum-postcode.svg?style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/vue-daum-postcode"><img alt="License" src="https://img.shields.io/npm/l/vue-daum-postcode.svg?style=flat-square" /></a>
