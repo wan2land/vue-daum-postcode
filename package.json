@@ -28,7 +28,7 @@
     "deploy:example": "npm run build:example && gh-pages -d example-dist"
   },
   "main": "lib/vue-daum-postcode.umd.js",
-  "module": "lib/vue-daum-postcode.es.js",
+  "module": "lib/vue-daum-postcode.mjs",
   "types": "lib/index.d.ts",
   "devDependencies": {
     "@babel/types": "^7.20.7",
