@@ -1,8 +1,9 @@
-import { defer, load } from 'nano-loader'
+import { once, load } from 'nano-loader'
 
 export function createVueDaumPostcode(options = {}) {
-  const loadDaumPostcode = defer(
-    () => load(options.scriptUrl || '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js')
+  const scriptUrl = options.scriptUrl || '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
+  const loadDaumPostcode = once(
+    () => load(scriptUrl)
       .then(() => new Promise(resolve => window.daum.postcode.load(resolve)))
   )
 
@@ -106,6 +107,10 @@ export function createVueDaumPostcode(options = {}) {
           })
           this.$emit('load')
         })
+      }).catch((e) => {
+        const error = new Error(`Load ${scriptUrl} failed.`);
+        error.cause = e;
+        this.$emit("error", error);
       })
     },
     computed: {
