@@ -35,7 +35,7 @@
     "@commitlint/cli": "17.4.4",
     "@commitlint/config-conventional": "17.4.4",
     "@rushstack/eslint-patch": "^1.2.0",
-    "@types/node": "16.18.14",
+    "@types/node": "16.18.15",
     "@types/simple-icons": "5.8.0",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
