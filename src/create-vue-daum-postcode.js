@@ -1,4 +1,4 @@
-import { once, load } from 'nano-loader'
+import { once, load } from 'nano-loader/index.cjs'
 
 export function createVueDaumPostcode(options = {}) {
   const scriptUrl = options.scriptUrl || '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
