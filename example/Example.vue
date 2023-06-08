@@ -4,12 +4,19 @@ import ExampleError from "./ExampleError.vue";
 import ExampleLoading from "./ExampleLoading.vue";
 import ExampleProps from "./ExampleProps.vue";
 import ExampleSearch from "./ExampleSearch.vue";
+import { siGithub } from "simple-icons";
 </script>
 <template>
   <div>
     <div class="hero">
       <h2>Vue Daum Postcode</h2>
       <p>Daum(Kakao) Postcode Component for Vue 3.</p>
+      <div class="link">
+        <a href="https://github.com/wan2land/vue-daum-postcode" target="_blank">
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <i v-html="siGithub.svg" />
+        </a>
+      </div>
     </div>
     <div class="section">
       <div class="container">

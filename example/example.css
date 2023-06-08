@@ -63,6 +63,25 @@ h5 {
   background-size: 100% 100%;
 }
 
+.hero .link {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.hero .link a {
+  display: block;
+  padding: 12px;
+  color: #fff;
+}
+
+.hero .link a i {
+  display: block;
+  width: 32px;
+  height: 32px;
+  fill: currentColor;
+}
+
 .section {
   padding: 2rem 1rem;
 }
