@@ -32,8 +32,8 @@
   "types": "lib/index.d.ts",
   "devDependencies": {
     "@babel/types": "^7.20.7",
-    "@commitlint/cli": "17.6.7",
-    "@commitlint/config-conventional": "17.6.7",
+    "@commitlint/cli": "17.7.0",
+    "@commitlint/config-conventional": "17.7.0",
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/node": "^18.16.16",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
