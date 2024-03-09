@@ -35,7 +35,7 @@
     "@commitlint/cli": "17.8.1",
     "@commitlint/config-conventional": "17.8.1",
     "@rushstack/eslint-patch": "^1.2.0",
-    "@types/node": "^18.16.16",
+    "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
     "@vitejs/plugin-vue": "4.6.2",
