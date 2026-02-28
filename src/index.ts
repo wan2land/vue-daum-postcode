@@ -10,20 +10,19 @@ import type {
   VueDaumPostcodeResizeResult,
 } from "./interfaces";
 
-export interface VueDaumPostcodeInstallOptions
-  extends CreateVueDaumPostcodeOptions {
+export interface VueDaumPostcodeInstallOptions extends CreateVueDaumPostcodeOptions {
   name?: string | null;
 }
 
 export function install(
   app: App,
-  { name, ...options }: VueDaumPostcodeInstallOptions = {}
+  { name, ...options }: VueDaumPostcodeInstallOptions = {},
 ) {
   app.component(
     name ?? "VueDaumPostcode",
     Object.keys(options).length > 0
       ? createVueDaumPostcode(options)
-      : VueDaumPostcode
+      : VueDaumPostcode,
   );
 }
 

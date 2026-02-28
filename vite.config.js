@@ -1,15 +1,18 @@
-import { defineConfig } from "vite";
+import path from "node:path";
+
 import vue from "@vitejs/plugin-vue";
-import * as path from "path";
+import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
   build: {
-    outDir: path.resolve(__dirname, "lib"),
+    outDir: path.resolve(import.meta.dirname, "lib"),
     lib: {
-      entry: path.resolve(__dirname, "entry.ts"),
+      entry: path.resolve(import.meta.dirname, "entry.ts"),
       name: "VueDaumPostcode",
+      formats: ["es", "umd"],
+      fileName: "vue-daum-postcode",
     },
     rollupOptions: {
       external: ["vue"],

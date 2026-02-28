@@ -17,7 +17,11 @@
     "type": "git",
     "url": "git://github.com/wan2land/vue-daum-postcode.git"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
+    "prepare": "husky",
     "prepack": "npm run build",
     "test": "npm run test:lint",
     "test:lint": "eslint 'src/**/*.ts'",
@@ -30,32 +34,30 @@
   "main": "lib/vue-daum-postcode.umd.js",
   "module": "lib/vue-daum-postcode.mjs",
   "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/vue-daum-postcode.mjs",
+      "require": "./lib/vue-daum-postcode.umd.js"
+    }
+  },
   "devDependencies": {
-    "@babel/types": "^7.20.7",
-    "@commitlint/cli": "17.8.1",
-    "@commitlint/config-conventional": "17.8.1",
-    "@rushstack/eslint-patch": "^1.2.0",
-    "@types/node": "^18.16.16",
-    "@typescript-eslint/eslint-plugin": "^5.50.0",
-    "@typescript-eslint/parser": "^5.50.0",
-    "@vitejs/plugin-vue": "4.6.2",
-    "@vue/compiler-sfc": "3.5.24",
-    "@vue/eslint-config-prettier": "^7.0.0",
-    "@vue/eslint-config-typescript": "^11.0.2",
-    "eslint": "^8.33.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-import-resolver-typescript": "^3.5.3",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
-    "eslint-plugin-vue": "^9.9.0",
-    "gh-pages": "^5.0.0",
-    "husky": "8.0.3",
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
+    "@types/node": "^22.0.0",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-vue": "^9.30.0",
+    "gh-pages": "^6.0.0",
+    "husky": "^9.0.0",
     "nano-loader": "^1.1.2",
-    "prettier": "^2.8.3",
-    "simple-icons": "^9.0.0",
-    "typescript": "4.9.5",
-    "vite": "4.5.14",
+    "prettier": "^3.5.0",
+    "simple-icons": "^13.0.0",
+    "typescript": "~5.8.0",
+    "typescript-eslint": "^8.0.0",
+    "vite": "^6.0.0",
     "vue": "3.5.24"
   }
 }

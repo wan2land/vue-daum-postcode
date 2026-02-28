@@ -6,12 +6,9 @@
     "paths": {
       "vue-daum-postcode": ["./src"]
     },
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "lib": [
-      "DOM",
-      "ESNEXT"
-    ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "lib": ["DOM", "ESNEXT"],
     "emitDeclarationOnly": true,
     "declaration": true,
     "pretty": true,

@@ -1,5 +1,4 @@
-import VueDaumPostcode from './src'
+import VueDaumPostcode from "./src";
 
-
-export * from './src'
-export default VueDaumPostcode
+export * from "./src";
+export default VueDaumPostcode;

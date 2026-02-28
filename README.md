@@ -21,20 +21,17 @@ Vue 2.x를 사용하다면 [v0.x branch](https://github.com/wan2land/vue-daum-po
 npm i vue-daum-postcode
 ```
 
-
 **Global Registration**
 
 [Vue3 Global Registration Guide](https://v3.vuejs.org/guide/component-registration.html#global-registration)
 
 ```js
-import { createApp } from 'vue'
-import VueDaumPostcode from 'vue-daum-postcode'
+import { createApp } from "vue";
+import VueDaumPostcode from "vue-daum-postcode";
 
+const app = createApp(/* */);
 
-const app = createApp(/* */)
-
-app.use(VueDaumPostcode) // export default is plugin
-
+app.use(VueDaumPostcode); // export default is plugin
 ```
 
 **Local Registration**
@@ -46,13 +43,13 @@ app.use(VueDaumPostcode) // export default is plugin
   <VueDaumPostcode :options="options" />
 </template>
 <script>
-import { VueDaumPostcode } from 'vue-daum-postcode'
+import { VueDaumPostcode } from "vue-daum-postcode";
 
 export default {
   components: {
     VueDaumPostcode, // export VueDaumPostcode is component
   },
-}
+};
 </script>
 ```
 
@@ -60,8 +57,8 @@ export default {
 
 ```js
 app.use(VueDaumPostcode, {
-  name: 'DaumPostcode',
-})
+  name: "DaumPostcode",
+});
 ```
 
 **Postcode Js 경로 변경 (Global Registration)**
@@ -70,41 +67,42 @@ app.use(VueDaumPostcode, {
 
 ```js
 app.use(VueDaumPostcode, {
-  scriptUrl: "https://s3.ap-northeast-2.amazonaws.com/YOUR_BUCKET_NAME/postcode.v2.js"
-})
+  scriptUrl:
+    "https://s3.ap-northeast-2.amazonaws.com/YOUR_BUCKET_NAME/postcode.v2.js",
+});
 ```
 
 ## Props
 
-이름                      | 타입      | 설명        | 기본값
-------------------------- | --------- | ----------- | -------
-`q`                       | `String`  | 검색어 | `""`
-`animation`               | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `animation`. | `false`
-`noAutoMapping`           | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `autoMapping`, 기본값을 `true`에서 `false`로 조정. | `false`
-`noShorthand`             | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `shorthand`, 기본값을 `true`에서 `false`로 조정. | `false`
-`pleaseReadGuide`         | `Number`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `pleaseReadGuide`. | `0`
-`pleaseReadGuideTimer`    | `Number`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `pleaseReadGuideTimer`. | `1.5`
-`maxSuggestItems`         | `Number`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `maxSuggestItems`. | `10`
-`showMoreHName`           | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `showMoreHName`. | `false`
-`hideMapBtn`              | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `hideMapBtn`. | `false`
-`hideEngBtn`              | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `hideEngBtn`. | `false`
-`alwaysShowEngAddr`       | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `alwaysShowEngAddr`. | `false`
-`zonecodeOnly`            | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `zonecodeOnly`. | `false`
-`noSubmitMode`            | `Boolean` | Submit Mode 비활성화시 사용. ([관련 이슈 링크](https://github.com/daumPostcode/QnA/issues/286)) | `false`
-`theme`                   | `object`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `theme`. | `{}`
+| 이름                   | 타입      | 설명                                                                                                                   | 기본값  |
+| ---------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------- | ------- |
+| `q`                    | `String`  | 검색어                                                                                                                 | `""`    |
+| `animation`            | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `animation`.                                       | `false` |
+| `noAutoMapping`        | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `autoMapping`, 기본값을 `true`에서 `false`로 조정. | `false` |
+| `noShorthand`          | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `shorthand`, 기본값을 `true`에서 `false`로 조정.   | `false` |
+| `pleaseReadGuide`      | `Number`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `pleaseReadGuide`.                                 | `0`     |
+| `pleaseReadGuideTimer` | `Number`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `pleaseReadGuideTimer`.                            | `1.5`   |
+| `maxSuggestItems`      | `Number`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `maxSuggestItems`.                                 | `10`    |
+| `showMoreHName`        | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `showMoreHName`.                                   | `false` |
+| `hideMapBtn`           | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `hideMapBtn`.                                      | `false` |
+| `hideEngBtn`           | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `hideEngBtn`.                                      | `false` |
+| `alwaysShowEngAddr`    | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `alwaysShowEngAddr`.                               | `false` |
+| `zonecodeOnly`         | `Boolean` | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `zonecodeOnly`.                                    | `false` |
+| `noSubmitMode`         | `Boolean` | Submit Mode 비활성화시 사용. ([관련 이슈 링크](https://github.com/daumPostcode/QnA/issues/286))                        | `false` |
+| `theme`                | `object`  | [Daum 우편번호, 생성자속성](http://postcode.map.daum.net/guide)에서 `theme`.                                           | `{}`    |
 
 ## Events
 
-이름                      | 설명
-------------------------- | -----------
-`load`                    | 다음 우편번호가 로딩 되었을 때 발생
-`search`                  | [Daum 우편번호, 속성](http://postcode.map.daum.net/guide)에서 `onsearch`.
-`complete`                | [Daum 우편번호, 속성](http://postcode.map.daum.net/guide)에서 `oncomplete`.
-`resize`                  | [Daum 우편번호, 속성](http://postcode.map.daum.net/guide)에서 `onresize`.
-`error`                   | 스크립트 로딩 실패시 발생
+| 이름       | 설명                                                                        |
+| ---------- | --------------------------------------------------------------------------- |
+| `load`     | 다음 우편번호가 로딩 되었을 때 발생                                         |
+| `search`   | [Daum 우편번호, 속성](http://postcode.map.daum.net/guide)에서 `onsearch`.   |
+| `complete` | [Daum 우편번호, 속성](http://postcode.map.daum.net/guide)에서 `oncomplete`. |
+| `resize`   | [Daum 우편번호, 속성](http://postcode.map.daum.net/guide)에서 `onresize`.   |
+| `error`    | 스크립트 로딩 실패시 발생                                                   |
 
 ## Slots
 
-이름                      | 설명
-------------------------- | ---------
-`loading`                 | 다음 우편번호가 아직 완전히 불러오기 전에 보여줄 내용이 있는 경우 해당 슬롯에 넣습니다. (ex. spinner)
+| 이름      | 설명                                                                                                  |
+| --------- | ----------------------------------------------------------------------------------------------------- |
+| `loading` | 다음 우편번호가 아직 완전히 불러오기 전에 보여줄 내용이 있는 경우 해당 슬롯에 넣습니다. (ex. spinner) |

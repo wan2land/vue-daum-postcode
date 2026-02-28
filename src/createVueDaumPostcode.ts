@@ -13,7 +13,7 @@ export interface CreateVueDaumPostcodeOptions {
 }
 
 export function createVueDaumPostcode(
-  options: CreateVueDaumPostcodeOptions = {}
+  options: CreateVueDaumPostcodeOptions = {},
 ) {
   const scriptUrl =
     options.scriptUrl ||
@@ -22,9 +22,9 @@ export function createVueDaumPostcode(
     load(scriptUrl).then(
       () =>
         new Promise<void>((resolve) =>
-          (window as any).daum.postcode.load(resolve)
-        )
-    )
+          (window as any).daum.postcode.load(resolve),
+        ),
+    ),
   );
 
   return defineComponent({
@@ -159,9 +159,9 @@ export function createVueDaumPostcode(
                 {
                   class: ["vue-daum-postcode-loading"],
                 },
-                [this.$slots.loading()]
+                [this.$slots.loading()],
               ),
-            ]
+            ],
       );
     },
   });
