@@ -17,12 +17,12 @@ export function createVueDaumPostcode(
 ) {
   const scriptUrl =
     options.scriptUrl ||
-    "//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
+    "//t1.kakaocdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
   const loadDaumPostcode = once(() =>
     load(scriptUrl).then(
       () =>
         new Promise<void>((resolve) =>
-          (window as any).daum.postcode.load(resolve),
+          (window as any).kakao.postcode.load(resolve),
         ),
     ),
   );
@@ -99,7 +99,7 @@ export function createVueDaumPostcode(
           return this.$nextTick();
         })
         .then(() => {
-          new (window as any).daum.Postcode({
+          new (window as any).kakao.Postcode({
             width: "100%",
             height: "100%",
             animation: this.animation,
