@@ -1,10 +1,10 @@
 import { once, load } from 'nano-loader/index.cjs'
 
 export function createVueDaumPostcode(options = {}) {
-  const scriptUrl = options.scriptUrl || '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
+  const scriptUrl = options.scriptUrl || '//t1.kakaocdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
   const loadDaumPostcode = once(
     () => load(scriptUrl)
-      .then(() => new Promise(resolve => window.daum.postcode.load(resolve)))
+      .then(() => new Promise(resolve => window.kakao.postcode.load(resolve)))
   )
 
   return {
@@ -76,7 +76,7 @@ export function createVueDaumPostcode(options = {}) {
       loadDaumPostcode().then(() => {
         this.isLoaded = true
         this.$nextTick(() => {
-          new window.daum.Postcode({
+          new window.kakao.Postcode({
             width: '100%',
             height: '100%',
             animation: this.animation,
