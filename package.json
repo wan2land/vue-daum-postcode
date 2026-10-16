@@ -46,7 +46,7 @@
     "@commitlint/config-conventional": "^19.0.0",
     "@types/node": "^22.0.0",
     "@vitejs/plugin-vue": "^5.0.0",
-    "eslint": "^9.0.0",
+    "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-vue": "^9.30.0",
